@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<title>Bank APP - JavaScript</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=1420, maximum-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link href="css/app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<header class="header">
+		<div class="topPanel">
+			<div class="container topPanel__container flex-s-c">
+				<a href="/" class="logoTop"><img src="images/logo-top.png" alt=""></a>
+				<div class="topPanel__buttons flex">
+					<a href="" class="button buttonGreen">Log In</a>
+					<a href="#resister" class="open_modal button buttonPink">Sign Up</a>
+				</div>
+			</div><!-- container -->
+		</div><!-- topPanel -->
+	</header><!-- header -->
+
+	<!-- Main -->
+	<main class="app">
+		<!-- BALANCE -->
+		<div class="balance">
+		  <div>
+			<p class="balance__label">Current balance</p>
+			<p class="balance__date">
+			  As of <span class="date">05/03/2037</span>
+			</p>
+		  </div>
+		  <p class="balance__value">0000€</p>
+		</div>
+  
+		<!-- MOVEMENTS -->
+		<div class="movements">
+		  <div class="movements__row">
+			<div class="movements__type movements__type--deposit">2 deposit</div>
+			<div class="movements__date">3 days ago</div>
+			<div class="movements__value">4 000€</div>
+		  </div>
+		  <div class="movements__row">
+			<div class="movements__type movements__type--withdrawal">
+			  1 withdrawal
+			</div>
+			<div class="movements__date">24/01/2037</div>
+			<div class="movements__value">-378€</div>
+		  </div>
+		</div>
+  
+		<!-- SUMMARY -->
+		<div class="summary">
+		  <p class="summary__label">In</p>
+		  <p class="summary__value summary__value--in">0000€</p>
+		  <p class="summary__label">Out</p>
+		  <p class="summary__value summary__value--out">0000€</p>
+		  <p class="summary__label">Interest</p>
+		  <p class="summary__value summary__value--interest">0000€</p>
+		  <button class="btn--sort">&downarrow; SORT</button>
+		</div>
+  
+		<!-- OPERATION: TRANSFERS -->
+		<div class="top-stat_block">
+		  <div>
+			<h2>Transfer money</h2>
+			<form class="form form--transfer">
+				<input type="text" class="form__input form__input--to" />
+				<input type="number" class="form__input form__input--amount" />
+				<button class="form__btn form__btn--transfer">&rarr;</button>
+				<label class="form__label">Transfer to</label>
+				<label class="form__label">Amount</label>
+			  </form>
+		  </div>
+		</div>
+  
+		<!-- OPERATION: LOAN -->
+		<div class="operation operation--loan">
+		  <h2 class="color">Request loan</h2>
+		  </form>
+		</div>
+  
+		<!-- OPERATION: CLOSE -->
+		<div class="operation operation--close">
+			<div>
+				<h2>Close account</h2>
+				<form class="form form--close">
+					<input type="text" class="form__input form__input--user" />
+					<input
+					  type="password"
+					  maxlength="6"
+					  class="form__input form__input--pin"
+					/>
+					<button class="form__btn form__btn--close">&rarr;</button>
+					<label class="form__label">Confirm user</label>
+					<label class="form__label">Confirm PIN</label>
+				  </form>
+			</div>
+		</div>
+  
+		<!-- LOGOUT TIMER -->
+		<p class="logout-timer">
+		  You will be logged out in <span class="timer">05:00</span>
+		</p>
+	  </main>
+
+	<footer class="footer">
+		<div class="container">
+			<a href="" class="shop-button flex-c-c">
+				Up
+			</a>
+			<div class="buttonTop">
+			</div>
+			<div class="footerBottom flex-c">
+				<div class="copy-text">
+					<span>Copyright 2023 © <a href="http://teampereda.com">teampereda.com</a></span>
+					<p>© Team Pereda, Inc. All rights reserved.</p>
+				</div>
+				<a href="https://teampereda.com" target="_blank"><img src="images/logo-top.png" alt=""></a>
+			</div>
+		</div><!-- container -->
+	</footer><!-- footer -->
+	<div id="resister" class="modal_div"> 
+		<span class="modal_close"></span>
+        <div class="modal-content">
+        	<h2><span>Registration</span></h2>
+        	<form>
+        		<p><input type="text" name="login" placeholder="USERNAME"></p>
+        		<p><input type="password" name="pass" placeholder="PASSWORD"></p>
+        		<p><input type="password" name="re-pass" placeholder="CONFIRM PASSWORD"></p>
+        		<p><input type="text" name="mail" placeholder="EMAIL"></p>
+        		<div class="formButton">
+        			<button class="buttonGreen">Sign In</button>
+        		</div>
+        	</form>
+        </div> 
+	</div>
+	<div id="overlay"></div>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/app.min.js"></script>
+	<script src="js/jquery.rotateSlider.js"></script>
+	<script src="js/global.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
