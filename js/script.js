@@ -172,3 +172,16 @@ const displayMovements = (movements) => {
   // Create an array of strings that describe each movement
   const movementsDes = movements.map( (mov, i) => 
   `Movement ${i + 1}: You ${(mov > 0) ? 'deposited' : 'withdrew'} ${mov} ${Math.abs(mov)}`);
+
+
+/*
+
+*/
+// Finding the first withdrawal movement.
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+  
+const findAccount = accounts.find(accounts => accounts.owner === 'Jessica Davis');
+console.log(accounts);
+console.log(findAccount);
