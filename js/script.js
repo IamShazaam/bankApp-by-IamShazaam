@@ -14,6 +14,7 @@ const account1 = {
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
+  username: 'jonas'
 };
 
 // Data 2
@@ -22,6 +23,7 @@ const account2 = {
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+  username: 'jessica'
 };
 
 // Data 3
@@ -30,6 +32,7 @@ const account3 = {
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
+  username: 'steven'
 };
 
 // Data 4
@@ -38,6 +41,7 @@ const account4 = {
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
+  username: 'sarah'
 };
 
 // All the data together as an array
@@ -52,8 +56,10 @@ const labelSumOut = document.querySelector('.summary__value--out');
 const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
 
-const containerApp = document.querySelector('.app');
+const containerApp = document.querySelector('.main');
 const containerMovements = document.querySelector('.movements');
+
+const loginForm = document.querySelector('.login');
 
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
@@ -68,6 +74,9 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+const loginPopup = document.querySelector('.fields');
+const loginModal = document.querySelector('.modal_div');
 
 
 
@@ -86,9 +95,9 @@ const displayMovements = (movements) => {
       // Create HTML element and insert into DOM
       const html = `
               <div class="movements__row">
-                <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-                <div class="movements__date">${ date }</div>
-                <div class="movements__value">${mov}</div>
+                <tr>
+                <td>1</td> <td class="movements__type  movements__type--${type}">${i + 1} ${type}</td> <td class="movements__value">${mov} €</td> <td></td> <td></td> <td class="movements__date">${ date }</td>
+                </tr>
               </div>
       `;
       containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -96,7 +105,7 @@ const displayMovements = (movements) => {
   }
   
   // Display Movements using the above function
-  displayMovements(account1.movements);
+  // 
 
   /*
   
@@ -109,26 +118,26 @@ const displayMovements = (movements) => {
     const balance = movements.reduce((acc, mov) => acc + mov, 0);
 
     // Update the balance label in the UI with the calculated balance value
-    labelBalance.textContent = `${balance} EUR`;
+    labelBalance.textContent = `${balance} €`;
   }
   
   // Call calcDisplayBalance() function to display balance for account1
   calcDisplayBalance(account1.movements);
   
   // Calculate and display summary for account1
-  const calcDisplaySummary = (movements) => {
+  const calcDisplaySummary = (account) => {
     
     // Calculate total income from all deposits
-    const incomes =  movements.filter(mov => mov > 0)
+    const incomes =  account.movements.filter(mov => mov > 0)
                               .reduce((acc, mov) => acc + mov, 0);
     
     // Calculate total amount of withdrawals (as negative value)
-    const out = movements.filter(mov => mov < 0)
+    const out = account.movements.filter(mov => mov < 0)
                          .reduce((acc, mov) => acc + mov, 0);     
   
     // Calculate total interest earned on all deposits (using fixed interest rate of 1.2%)
-    const interest =   movements.filter(mov => mov > 0)
-                                .map(deposit => (deposit  * 1.2)/100)
+    const interest =   account.movements.filter(mov => mov > 0)
+                                .map(deposit => (deposit  * account.interestRate)/100)
                                 .filter((int, i, arr) => { console.log(arr); return int >= 1; })
                                 .reduce((acc, int) => acc + int, 0);
   
@@ -137,11 +146,65 @@ const displayMovements = (movements) => {
     labelSumOut.textContent = `${Math.abs(out)} €`; 
     labelSumInterest.textContent = `${interest} €`;
   }
-  
-  // Call calcDisplaySummary() function to display summary for account1
-  calcDisplaySummary(account1.movements);
    
-  
+  const createUsernames = (accs) => {
+    //
+    accs.forEach((acc) => {
+        //
+        acc.username = acc.owner.toLowerCase()
+                                .split(' ')
+                                .map(name => name[0])
+                                .join('');
+    });
+  };
+
+  createUsernames(accounts);
+
+  let currentAccount;
+
+  //Adding event listener to BTN
+  btnLogin.addEventListener('click', (e) => {
+    
+    //Prevent form from submitting
+    e.preventDefault() 
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+    console.log(currentAccount);
+
+    // if (currentAccount?.pin === Number(inputClosePin.value)) {
+    //   //Display UI and message
+    //   labelWelcome.textContent = `Welcome back ${currentAccount.owner.split(' ')[0]}`;
+    //   containerApp.style.opacity = '100';
+    // }
+
+    if(Number(inputLoginPin.value) === currentAccount?.pin) {
+        
+        //Display UI and message
+        labelWelcome.textContent = `Welcome back ${currentAccount.owner.split(' ')[0]}`;
+        containerApp.style.opacity = '100';
+
+        //Hide form
+        loginPopup.style.display = 'none';
+
+        //Change login modal to log out clicka after login in.
+
+        //Clear input fields
+        
+
+        //Display movements
+        displayMovements(currentAccount.movements);
+        //Display Balance
+        calcDisplayBalance(currentAccount.movements);
+        //Display  Summary
+        calcDisplaySummary(currentAccount);
+
+        console.log('Login form has been hidden');
+
+    } else {
+        console.log('Wrong Password');
+        alert('WrongPassword!');
+    }
+  });
+    
   /////////////////////////////////////////////////
   /////////////////////////////////////////////////
   
@@ -172,7 +235,6 @@ const displayMovements = (movements) => {
   // Create an array of strings that describe each movement
   const movementsDes = movements.map( (mov, i) => 
   `Movement ${i + 1}: You ${(mov > 0) ? 'deposited' : 'withdrew'} ${mov} ${Math.abs(mov)}`);
-
 
 /*
 

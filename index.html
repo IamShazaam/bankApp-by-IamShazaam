@@ -3,147 +3,255 @@
 <head>
 	<meta charset="utf-8" />
 	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
-	<title>Bank APP - JavaScript</title>
+	<title>Mu Online Modern</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<meta name="viewport" content="width=1420, maximum-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-	<link href="css/app.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	<link href="css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="css/slick.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+	<link href="css/mobile-style.css" rel="stylesheet">
 </head>
 
 <body>
-	<header class="header">
-		<div class="topPanel">
-			<div class="container topPanel__container flex-s-c">
-				<a href="/" class="logoTop"><img src="images/logo-top.png" alt=""></a>
-				<div class="topPanel__buttons flex">
-					<a href="" class="button buttonGreen">Log In</a>
-					<a href="#resister" class="open_modal button buttonPink">Sign Up</a>
+	<div class="wrapper">
+		<header>
+			<div class="topPanel">
+				<div class="btn btn-drop" data-class="topPanel-left">
+					<span></span>
+					<span></span>
+					<span></span>
 				</div>
-			</div><!-- container -->
-		</div><!-- topPanel -->
-	</header><!-- header -->
-
-	<!-- Main -->
-	<main class="app">
-		<!-- BALANCE -->
-		<div class="balance">
-		  <div>
-			<p class="balance__label">Current balance</p>
-			<p class="balance__date">
-			  As of <span class="date">05/03/2037</span>
-			</p>
-		  </div>
-		  <p class="balance__value">0000€</p>
-		</div>
-  
-		<!-- MOVEMENTS -->
-		<div class="movements">
-		  <div class="movements__row">
-			<div class="movements__type movements__type--deposit">2 deposit</div>
-			<div class="movements__date">3 days ago</div>
-			<div class="movements__value">4 000€</div>
-		  </div>
-		  <div class="movements__row">
-			<div class="movements__type movements__type--withdrawal">
-			  1 withdrawal
-			</div>
-			<div class="movements__date">24/01/2037</div>
-			<div class="movements__value">-378€</div>
-		  </div>
-		</div>
-  
-		<!-- SUMMARY -->
-		<div class="summary">
-		  <p class="summary__label">In</p>
-		  <p class="summary__value summary__value--in">0000€</p>
-		  <p class="summary__label">Out</p>
-		  <p class="summary__value summary__value--out">0000€</p>
-		  <p class="summary__label">Interest</p>
-		  <p class="summary__value summary__value--interest">0000€</p>
-		  <button class="btn--sort">&downarrow; SORT</button>
-		</div>
-  
-		<!-- OPERATION: TRANSFERS -->
-		<div class="top-stat_block">
-		  <div>
-			<h2>Transfer money</h2>
-			<form class="form form--transfer">
-				<input type="text" class="form__input form__input--to" />
-				<input type="number" class="form__input form__input--amount" />
-				<button class="form__btn form__btn--transfer">&rarr;</button>
-				<label class="form__label">Transfer to</label>
-				<label class="form__label">Amount</label>
-			  </form>
-		  </div>
-		</div>
-  
-		<!-- OPERATION: LOAN -->
-		<div class="operation operation--loan">
-		  <h2 class="color">Request loan</h2>
-		  </form>
-		</div>
-  
-		<!-- OPERATION: CLOSE -->
-		<div class="operation operation--close">
-			<div>
-				<h2>Close account</h2>
-				<form class="form form--close">
-					<input type="text" class="form__input form__input--user" />
-					<input
-					  type="password"
-					  maxlength="6"
-					  class="form__input form__input--pin"
-					/>
-					<button class="form__btn form__btn--close">&rarr;</button>
-					<label class="form__label">Confirm user</label>
-					<label class="form__label">Confirm PIN</label>
-				  </form>
-			</div>
-		</div>
-  
-		<!-- LOGOUT TIMER -->
-		<p class="logout-timer">
-		  You will be logged out in <span class="timer">05:00</span>
-		</p>
-	  </main>
-
-	<footer class="footer">
-		<div class="container">
-			<a href="" class="shop-button flex-c-c">
-				Up
-			</a>
-			<div class="buttonTop">
-			</div>
-			<div class="footerBottom flex-c">
-				<div class="copy-text">
-					<span>Copyright 2023 © <a href="http://teampereda.com">teampereda.com</a></span>
-					<p>© Team Pereda, Inc. All rights reserved.</p>
+				<div class="topPanel-wrapper flex-c">
+					<div class="topPanel-left flex-c">
+						<a href="/" class="logo-mini bright"><img src="images/logo-mini.png" alt="Logo"></a>
+						<ul class="nav">
+							<li><a class="welcome">Log in to get started</a></li>							
+							<li><a href="">About</a></li>
+							<li class="sub-menu"><a href="javascript:void(0)">Community</a>
+								<ul>
+									<li><a href="">Streaming</a></li>
+									<li><a href="">Video</a></li>
+									<li><a href="">Wallpapers</a></li>
+									<li><a href="">Screenshots</a></li>
+									<li><a href="">Fan Art</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!--topPanel-left-->
+					<div class="topPanel-right">
+						<a href="#register" class="sign-in open_modal">
+							Sign In
+						</a>
+					</div><!--topPanel-right-->
 				</div>
-				<a href="https://teampereda.com" target="_blank"><img src="images/logo-top.png" alt=""></a>
+			</div><!--topPanel-->
+			<div class="hand-animation">
+				<div class="light-hand"></div>
+				<div class="rune-hand"></div>
 			</div>
-		</div><!-- container -->
-	</footer><!-- footer -->
-	<div id="resister" class="modal_div"> 
+			<div class="sparks">
+				<div class="spark_1"></div>
+				<div class="spark_2"></div>
+				<div class="spark_3"></div>
+				<div class="spark_4 spark-big"></div>
+			  </div>
+		</header>
+		<main class="main">
+			<aside>
+
+				<!-- Money Transfer -->
+				<div class="rankings blockHome">
+					<div class="h2-title h2-title-table flex-s-c">
+						<span>Transfer Money</span> 
+					</div><!--h2-title-->
+					<div class="table tabTable-block active" id="players">
+						<div class="formGroup">
+							<span>Transfer to</span><input type="text" placeholder="Username">
+						</div>
+						<div class="formGroup">
+							<span>Amount</span><input type="number" placeholder="123456">
+						</div>
+						<div class="all-button">
+							<button>Send</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Request Loan -->
+				<div class="rankings blockHome">
+					<div class="h2-title h2-title-table flex-s-c">
+						<span>Request Loan</span> 
+					</div><!--h2-title-->
+					<div class="table tabTable-block active" id="players">
+						<div class="formGroup">
+							<span>Amount</span><input type="number" placeholder="Amount">
+						</div>
+						<div class="all-button">
+							<button>Ask</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Request Loan -->
+				<div class="rankings blockHome">
+					<div class="h2-title h2-title-table flex-s-c">
+						<span>Close Account</span> 
+					</div><!--h2-title-->
+					<div class="table tabTable-block active" id="players">
+						<div class="formGroup">
+							<span>Confirm Username</span><input type="text" placeholder="Username">
+						</div>
+						<div class="formGroup">
+							<span>Confirm PIN</span><input type="number" placeholder="******">
+						</div>
+						<div class="all-button">
+							<button>Close</button>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<div class="content">
+				<div class="h2-title h2-title-content flex-s-c">
+					<span>Current Balance:</span><spinner class="balance__value"> 3800 €</spinner>
+				</div>
+				<div class="acc">
+					<div class="acc-title">05/03/2037</div>
+					<div class="table-row table-scroll">
+						<table class="rankingTable">
+							<thead>
+								<tr>
+									<td>#</td> <td>Type</td> <td>Amount</td> <td></td> <td></td> <td>Date</td>
+								</tr>
+							</thead>
+							<tbody class="movements">
+									<div class="movements__row">
+										<tr>
+											
+										</tr>
+									</div>
+								
+							</tbody>
+						</table>
+					</div>
+
+				
+				
+				
+				</div><!--acc-->
+				<div class="acc">
+					  <!-- SUMMARY -->
+					  <div class="summary">
+						<p class="summary__label">In</p>
+						<p class="summary__value summary__value--in">0000€</p>
+						<p class="summary__label">Out</p>
+						<p class="summary__value summary__value--out">0000€</p>
+						<p class="summary__label">Interest</p>
+						<p class="summary__value summary__value--interest">0000€</p>
+						<button class="btn--sort">&downarrow; SORT</button>
+					  </div>
+				</div><!--acc-->
+			</div>
+		</main>
+	</div><!--wrapper-->
+	<footer>
+		<div class="wrapper">
+			<div class="footerMenu flex">
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Information</span>
+					</div>
+					<ul class="f-menu">
+						<li><a href="">About Us</a></li>
+					</ul>
+				</div>
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>How to Start</span>
+					</div>
+					<ul class="f-menu">
+						<li><a href="">Registration</a></li>
+						<li><a href="">FAQ</a></li>
+					</ul>
+				</div>
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Community</span>
+					</div>
+					<ul class="f-menu">
+						<li><a href="http://teampereda.com/ipboard" target="_blank">Forum</a></li>
+					</ul>
+				</div>
+				<div class="footerMenu-block">
+					<div class="h2-title flex-s-c">
+						<span>Support</span>
+					</div>
+					<div class="e-mail">
+						<p>E-mail support:</p>
+						<a href="#">support@teampereda.com</a>
+					</div>
+					<div class="f-soc-icons">
+						<a href="https://twitter.com/jonatlsun" target="_blank" class="twitter"></a>
+						<a href="https://www.facebook.com/profile.php?id=100009259745236" target="_blank" class="fb"></a>
+					</div>
+				</div>
+			</div><!--footerMenu-->
+			<span class="line"></span>
+			<div class="footerInfo">
+				<div class="footerInfo-block flex-s">
+					<div class="playments"><img src="images/payments-icon.png" alt="Payments"></div>
+					<div class="copy"><span>© 2023</span> <a href="http://teampereda.com" target="_blank">teampereda.com.</a> <span>All rights reserved</span></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="rightBodyLinks">
+		<a href="#" class="r-wiki"><span><img src="images/wiki-img.png" alt=""></span>Wiki</a>
+		<a href="#" class="r-shop"><span><img src="images/shop-img.png" alt=""></span>Shop</a>
+		<a href="#" class="r-forum"><span><img src="images/forum-img.png" alt=""></span>Forum</a>
+	</div>
+	<div class="toTop">
+		<span>Go to Top</span>
+	</div>
+
+	<div id="register" class="modal_div"> 
 		<span class="modal_close"></span>
-        <div class="modal-content">
-        	<h2><span>Registration</span></h2>
-        	<form>
-        		<p><input type="text" name="login" placeholder="USERNAME"></p>
-        		<p><input type="password" name="pass" placeholder="PASSWORD"></p>
-        		<p><input type="password" name="re-pass" placeholder="CONFIRM PASSWORD"></p>
-        		<p><input type="text" name="mail" placeholder="EMAIL"></p>
-        		<div class="formButton">
-        			<button class="buttonGreen">Sign In</button>
-        		</div>
-        	</form>
-        </div> 
+		<form>
+			<div class="modalContent">
+				<span class="modalTitle">Sign In</span>
+				<div class="enterButtons">
+					<a href="" class="facebook-button">Connect with Facebook</a>
+					<a href="" class="google-button">Connect with Google</a>
+				</div>
+
+				
+				<div class="fields">
+					<div class="fieldGroup">
+						<span>Login</span>
+						<input type="text" class="login__input--user">
+					</div>
+					<div class="fieldGroup">
+						<span>Password</span>
+						<input type="password" class="login__input--pin">
+					</div>
+				</div><!--fields-->
+				<div class="enter flex-s-c">
+					<div class="enterLinks">
+						<p><a href="" class="forgot">Forgot Password?</a></p>
+						<p><a href="" class="sign">Sign Up</a></p>
+					</div>
+					<button class="button-blue login__btn">Sign In Now</button>
+				</div>
+			</div><!--modalContent-->
+		</form> 
 	</div>
 	<div id="overlay"></div>
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<script src="js/app.min.js"></script>
-	<script src="js/jquery.rotateSlider.js"></script>
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/swiper-bundle.min.js"></script>
+	<script src="js/slick.min.js"></script>
 	<script src="js/global.js"></script>
 	<script src="js/script.js"></script>
 </body>
